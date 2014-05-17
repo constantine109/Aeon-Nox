@@ -1,5 +1,5 @@
-[B]5.1.1[/B]
-- Added Red theme - thx bryanbrazil.
+[B]5.5.0[/B]
+- Add Helix skinning engine changes.
 
 [B]5.1.0[/B]
 - Added weather and system infoline option.
