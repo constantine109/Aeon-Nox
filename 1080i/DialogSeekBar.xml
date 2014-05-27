@@ -7,7 +7,7 @@
 			<animation effect="slide" start="0,90" end="0,0" time="200">WindowOpen</animation>
 			<animation effect="slide" start="0,90" end="0,0" time="200">VisibleChange</animation>
 			<posy>1014</posy>
-			<visible>!VideoPlayer.Content(LiveTV)</visible>
+			<visible>[Window.IsActive(videoosd) | Window.IsActive(fullscreeninfo) | Player.Seeking | Player.DisplayAfterSeek | Player.Forwarding | Player.Rewinding] + !VideoPlayer.Content(LiveTV) </visible>
 			<control type="image">
 				<posx>0</posx>
 				<posy>4</posy>
@@ -286,6 +286,9 @@
 			<animation type="WindowClose" reversible="false">
 				<effect type="fade" start="100" end="0" time="500" />
 			</animation>
+			<animation type="Conditional" condition="System.IdleTime(2) + !Player.Caching" reversible="true">
+				<effect type="fade" start="100" end="0" time="400" />
+			</animation>
 			<visible>Player.Paused</visible>
 			<control type="image">
 				<posx>0</posx>
@@ -302,8 +305,6 @@
 				<texture>osd/btn_pause.png</texture>
 			</control>
 		</control>
-
-
 
 		<control type="grouplist">
 			<posx>30</posx>
